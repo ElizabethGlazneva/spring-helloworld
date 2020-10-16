@@ -5,8 +5,17 @@ public class App {
     public static void main(String[] args) {
         ApplicationContext applicationContext =
                 new AnnotationConfigApplicationContext(AppConfig.class);
-        HelloWorld bean =
+        HelloWorld beanHelloWorldOne =
                 (HelloWorld) applicationContext.getBean("helloworld");
-        System.out.println(bean.getMessage());
+        HelloWorld beanHelloWorldTwo =
+                (HelloWorld) applicationContext.getBean("helloworld");
+        boolean compare = beanHelloWorldOne==beanHelloWorldTwo;
+        System.out.println(compare);
+        Cat beanCatOne =
+                (Cat) applicationContext.getBean("cat");
+        Cat beanCatTwo =
+                (Cat) applicationContext.getBean("cat");
+        boolean compare2 = beanCatOne==beanCatTwo;
+        System.out.println(compare2);
     }
 }
